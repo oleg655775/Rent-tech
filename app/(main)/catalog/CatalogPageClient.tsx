@@ -1,25 +1,27 @@
-'use client';
+'use client'
 
-import { useEffect } from 'react';
-import { CarFilters } from '@/components/catalog/CarFilters/CarFilters';
-import { CarList } from '@/components/catalog/CarList/CarList';
-import { LoadMoreButton } from '@/components/catalog/LoadMoreButton/LoadMoreButton';
-import { useCarsStore } from '@/lib/store/cars.store';
+import { useEffect } from 'react'
+import { CarFilters } from '@/components/catalog/CarFilters/CarFilters'
+import { CarList } from '@/components/catalog/CarList/CarList'
+import { LoadMoreButton } from '@/components/catalog/LoadMoreButton/LoadMoreButton'
+import { useCarsStore } from '@/lib/store/cars.store'
 
 export default function CatalogPageClient() {
-  const cars = useCarsStore((state) => state.cars);
-  const loading = useCarsStore((state) => state.loading);
-  const page = useCarsStore((state) => state.page);
-  const totalPages = useCarsStore((state) => state.totalPages);
-  const brands = useCarsStore((state) => state.brands);
-  const fetchCars = useCarsStore((state) => state.fetchCars);
-  const loadMoreCars = useCarsStore((state) => state.loadMoreCars);
-  const setFilters = useCarsStore((state) => state.setFilters);
-  const error = useCarsStore((state) => state.error);
+  const cars = useCarsStore((state) => state.cars)
+  const loading = useCarsStore((state) => state.loading)
+  const page = useCarsStore((state) => state.page)
+  const totalPages = useCarsStore((state) => state.totalPages)
+  const brands = useCarsStore((state) => state.brands)
+  const fetchCars = useCarsStore((state) => state.fetchCars)
+  const fetchBrands = useCarsStore((state) => state.fetchBrands)
+  const loadMoreCars = useCarsStore((state) => state.loadMoreCars)
+  const setFilters = useCarsStore((state) => state.setFilters)
+  const error = useCarsStore((state) => state.error)
 
   useEffect(() => {
-    fetchCars(1);
-  }, [fetchCars]);
+    fetchBrands()   // завантажуємо список брендів з API
+    fetchCars(1)    // завантажуємо першу сторінку машин
+  }, [fetchBrands, fetchCars])
 
   return (
     <div className="container">
@@ -35,5 +37,5 @@ export default function CatalogPageClient() {
         isLoading={loading && cars.length > 0}
       />
     </div>
-  );
+  )
 }
