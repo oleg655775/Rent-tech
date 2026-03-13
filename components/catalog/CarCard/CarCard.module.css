@@ -1,0 +1,89 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 276px;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 276px;
+  height: 268px;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.favorite {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.favoriteIconFilled {
+  width: 16px;
+  height: 16px;
+  fill: var(--button);
+}
+
+.favoriteIconOutlined {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: var(--white);
+  stroke-width: 1.5px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.model {
+  color: var(--button);
+}
+
+.price {
+  font-family: var(--font-main);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: var(--font-main);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.333;
+  color: var(--gray);
+}
+
+.meta span:not(:last-child)::after {
+  content: '|';
+  margin-left: 6px;
+}
